@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, 'LTS-*' ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ 22, 24 ]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # The package has no runtime dependencies of its own; install the peer binding
+      # for the integration tests. NOTE: requires @digitalsubstrate/dsviper >= 1.2.2 on
+      # npm (the value.hashKey() bridge). Until 1.2.2 ships, this resolves to nothing and
+      # the gate stays red — by design.
+      - name: Install peer binding
+        run: npm install --no-save "@digitalsubstrate/dsviper@>=1.2.2"
+
+      - name: Test
+        run: npm test

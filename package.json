@@ -1,0 +1,49 @@
+{
+  "name": "@digitalsubstrate/dsviper-query",
+  "version": "0.1.0",
+  "description": "Consumer-side query layer over the @digitalsubstrate/dsviper Node.js binding — native iterator-helper chaining plus the value-identity bridges (hashKey grouping/dedup/join, total .compare() ordering)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./src/index.mjs"
+    }
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "src",
+    "index.d.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "prepublishOnly": "npm test"
+  },
+  "peerDependencies": {
+    "@digitalsubstrate/dsviper": ">=1.2.2"
+  },
+  "keywords": [
+    "dsviper",
+    "viper",
+    "query",
+    "linq",
+    "iterator-helpers"
+  ],
+  "homepage": "https://github.com/digital-substrate/dsviper-node-query#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digital-substrate/dsviper-node-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/digital-substrate/dsviper-node-query/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
