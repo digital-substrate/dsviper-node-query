@@ -21,11 +21,10 @@ jobs:
           node-version: ${{ matrix.node }}
 
       # The package has no runtime dependencies of its own; install the peer binding
-      # for the integration tests. NOTE: requires @digitalsubstrate/dsviper >= 1.2.2 on
-      # npm (the value.hashKey() bridge). Until 1.2.2 ships, this resolves to nothing and
-      # the gate stays red — by design.
+      # for the integration tests. The floor is the value.hashKey() bridge; the upper
+      # bound keeps the 1.2 line off a future 2.0 binding.
       - name: Install peer binding
-        run: npm install --no-save "@digitalsubstrate/dsviper@>=1.2.2"
+        run: npm install --no-save "@digitalsubstrate/dsviper@>=1.2.8 <2"
 
       - name: Test
         run: npm test

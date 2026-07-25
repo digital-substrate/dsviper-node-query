@@ -129,3 +129,11 @@ makes common shapes terser.
 ## License
 
 MIT
+
+## Runtime dependency
+
+At runtime, this project depends on the `@digitalsubstrate/dsviper` package
+(distributed on npm), which is **proprietary** (`license` field
+`LicenseRef-DigitalSubstrate-Commercial-1.2`). See
+[https://www.npmjs.com/package/@digitalsubstrate/dsviper](https://www.npmjs.com/package/@digitalsubstrate/dsviper)
+for the package's licensing posture and contact information.
